@@ -747,7 +747,7 @@ $(`
         return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0' ) + s;
     }
     function getStatusString(lyrics, time) {
-        return `${settings.view.timestamp ? `[${formatSeconds((time / 1000).toFixed(0))}] ` : ""}${settings.view.label ? "Song lyrics - " : ""}${lyrics.replace("♪", "🎶")}`;
+        return `${settings.view.timestamp ? `[${formatSeconds((time / 1000).toFixed(0))}] ` : ""}${settings.view.label ? "Song lyrics - " : ""}${lyrics.replace("♪", "🎶 {song_name_upper} 🎶")}`;
     }
     function parseStatusString(status, data) {
         if(typeof data !== "object") return;
@@ -760,7 +760,7 @@ $(`
                 .replace("{lyrics_letters_only}", data.lyrics.replace(/['",\.]/gi, ""))
                 .replace("{lyrics_upper_letters_only}", data.lyrics.toUpperCase().replace(/['",\.]/gi, ""))
                 .replace("{lyrics_lower_letters_only}", data.lyrics.toLowerCase().replace(/['",\.]/gi, ""))
-                .replace("🎶 {song_name_upper} 🎶", "🎶 {song_name_upper} 🎶");
+                .replace("♪", "🎶 {song_name_upper} 🎶");
         }
         if(data.time) status = status.replace("{timestamp}", formatSeconds((data.time / 1000).toFixed()));
         if(data.songName) {
