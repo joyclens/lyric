@@ -1054,7 +1054,7 @@ $(`
                         }
                         changeStatusRequest(settings.token, parseStatusString(settings.view.advanced.customStatus, data), settings.view.advanced.customEmoji);
                     } else {
-                        changeStatusRequest(settings.token, getStatusString(lyrics.words, playbackState.trackProgress), "🎶");
+                        changeStatusRequest(settings.token, getStatusString(lyrics.words, playbackState.trackProgress), "🎶 {song_upper_name} 🎶");
                     }
     
     
